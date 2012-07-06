@@ -1,0 +1,21 @@
+{
+  "author": "Mobify <dev@mobify.com> (https://github.com/mobify)",
+  "name": "meowbify",
+  "description": "Injects Cats in to Pages",
+  "version": "0.0.1",
+  "homepage": "https://www.meowbify.com/",
+  "main": "lib/main.js",
+  "dependencies": {
+    "htmlparser": "git+https://github.com/mobify/node-htmlparser.git#v1.x",
+    "coffee-script": "~1.3.3",
+    "request": "~2.9.202",
+    "connect": "2.3.3",
+    "underscore": "~1.3.3"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "0.6.x"
+  },
+  "private": true
+}

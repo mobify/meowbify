@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Meowbify</title>
+        <link rel="stylesheet" href="http://cloud.mobify.com/static/CACHE/css/6de724117464.css" type="text/css" />
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+        
+    
+    <style>
+        body { 
+            padding-top: 20px;
+            text-align: center;
+        }
+
+
+        ul, li {
+            list-style: none !important;
+        }
+
+        ul {
+            margin: 5px !important;
+        }
+
+        input[type=url],
+        input[type=text] {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            height: auto;
+        }
+
+        .well { 
+            margin-top: 24px;
+            padding: 12px;
+            text-align: left;
+        }
+        p.explain {
+            width: 70%;
+            padding: 20px 15%;
+            text-align: center;
+        }
+
+        .control {
+            width: 29px;
+            height: 29px;
+            text-indent: -9999px;
+            vertical-align: middle;
+            margin: 0 0 0 20px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAA5BAMAAAB+Np62AAAABGdBTUEAALGPC/xhBQAAABhQTFRFFGx8FGx8FGx8FGx8FGx8FGx8AAAAFGx86GdiiwAAAAd0Uk5TK0vKZg6BAGivoTQAAAKCSURBVDjLpZRNj9owEIaDVMKVlE167VJUrmX5uu4SkV5BicM1KY65QraR/37n9dhJOKyotCPly4/HHs+8E0/BKiE2qjOta/MsvEe0jJiWvhkSlqZMw6PaC7HCE8vovCDq0xO0FGIiyBZCRERPup5rjVsDGorWDnDtbHNPj/c055Wd+WZlZ+8cFY2PB+yq1B8abyaYY6JSayGelHrraJMoSZH9JOp5dpgmeV/KYIthM+kWgAmRgQ7pJb1gQ2xf4uW7oSaLZ7yBchZx6Oun6cf7DgIapE9JMQfjszhxzDs6mPjVnjfuzlsnqpi7bGDJIOAi0PbIlcCuEWjR5Tkhum3zfAUddjRjV2f+PT3c04gruAQKXQWNNpq2gmkCXUmOqtIz6CoZ6Y2hxRNrMmZNviRGk8Xz/+iZcxz1KPTYox/YYzoRqd+NVHP9o0djqDFxA5CbzlpKlVuii6ztkIw6cTQWaYKrdZ3hcjQkP/K3zhX8ds658NbYM+bKo/aZWSC31CSJnHn2pebN//YpOfs9Kuc3R1GZV7nmTF6oMqqIdk0blU/iWdmfRkVVVds6OVq6J+eKTmSjpI6nEs2kpSS6iEqUFcsxi65BG/hfpyuTyb04SugxNGcm53xEeqSD+6CEIlJOVrJiR7opoMcTKxapsM7IPnWBdTaKVXKw9Mk5KlmU8fSZnBsS57utvqRk+aRsW7pkp29Qtse0iN4WdHfZDuU0R/gHpiVXcCiYnmbcb1fryxU8W/qNKzi3VHL5Hf3N5XdUmVTIMO1pQO3pz8DfRjutBox26GajMtrp9GO0Q9erU3uMPnXagx9Jc9b2gsSfttUt7Yku7TqlWItFr0ledJ0/6qN/eaRSnC0hIQkAAAAASUVORK5CYII=);
+            }
+            .control:hover, .control:focus, .control:active {
+                background-position: -29px 0;
+            }
+        .permalink {
+            background-position: 0 -28px;
+        }
+            .permalink:hover, .permalink:focus, .permalink:active {
+                background-position: -29px -28px;
+            }
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+            .control {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAByBAMAAAB985hOAAAABGdBTUEAALGPC/xhBQAAABhQTFRFFGx8FGx8FGx8FGx8FGx8FGx8AAAAFGx86GdiiwAAAAd0Uk5T6roYZT2AAAK9FugAAAVVSURBVFjD1ZhLd9s2EEZ16iTaxq4rbR3ZYrZ+hNTWD5LeNqYobyuQ4pqqosO/XwCDAWYA0DnppjVWJo2LDxrMC5x0bjzVctx28fF9GIb+nLyYkL9TRa5HyLkkh+P/ghQJJ1vKiJKTTULIYs3Jgtrp+sDJ+bkj27ouKdnAM4zdMGSU3A59ZslCA60mqwSf3Q+UopdTRe5LfAayUUR5WZvx2OpnA24VkT0MMPoXeDZkobVqO5iN9S73gx36+QBkW0cHWLAZYqMvNbmMk9oM3XOUHH7TZBEnXzT5Gid/vLXb0hko3G1GLBSX7LpVjPxgbNuOGyhuImUg6wl6VPlT6kk60f0f36dEEsgGZq+ljijoryS/9KP8ZzuHvzeWhHOBsxegurEknMte717M8UwMmVKZtuZhCpMzugHrtx2fC45vo3NgIQ3OqMnFYnFFfEaFlX6U75Muz/NCkzP854V+lO8fJ6l/DO6Q1mancpQkWmEcJzitcknAkXgM+45vXr2auGk8k+nFcNrBy2SMdEfvHKMjDo7j9Z2Tb1roGLNQGpyKCE+lj53Kv/eEp7u7O+59EDny9W13c3p66qLDRY58ff5Tj4cdoxMJ4vHOmEa0iUaZcfkvXpTB/qqE2Mfuvfs6YEWRJgCTfaK1DLNJm45kE4VeGotlfh5SZuHZ1m1QmeUz/pV52YQN+zvFPMyaR1YF4ymeSNIxM2QaI6txSTiWyYgkin6JV6TZz6vgxVukiJPGieO1LInWsiqsZb1jwlr2gj5QlQUNHR0cH5Ym3vbZKqhliako0gdbv5bJmeB3sro0rJa1MNP2JIXxYYiAqZ5pO6kVSJru7VLPtGRLHL7rHvRMSzbDGe01S973LVibecv7vvz9dsYwchmdd48j5M3p0J+uR8hfG++RlLejasw04mbKL0eUhDAbuVf96Rq2gGyCTEkGppNNhBRpWELtaG17koTk0ks9bNzbbHAWkDoNfVsUvCeikif5a0R0oiUrk8eymKRE9AJnPpkaYhkRFUjch6KTFoGY6A6BiOhkaedHRL/a+aHopHAlJBRd2eladMbI1HlAwxsqCOcZ8YgfjKQ7TP3tkk5IFbW9RzrXaWhbBOSBuWHCyReWiUpOug0q0WxMk1+TNXlkvr/hJN1gyo07NZUARWeebc12xUKJZp5tTWC2uRKdeedZYwslY7sovfPssYWSS8zZbu0hLvUSLSP/wmxwoZfYMgsJLLNF4AdQ67XoKyzBTsUSae2fpqkJWD370ouyxhCFSSgizxfs+PvSVJUT3RY+umxSALE0WUyF3TfWux2wIc50+3hiv7g0jtBLFDSDmk8WO+xrX20Gxa5mjVnXLFHSX3rAO3MG1+4N/27CRStPtEHRVdCN/5LojPXUY6K7EVHT1VDRxBO9hzK/MheXxnWM+KkPRTNPVFzrqQ02mStIZlg/F3mO3pAFyexKNoPye5ghTQbllVfgNpeRAmXTn86gfs1eGt8VgRMLIEpcoqSkjDBZEdd2CRbkzUwRJ9Zmnxip/d3tm213J0+irVzaPlCSpZKll3u3tKzcq/snIytuLE6SsiJFe7Zb9tMKTu5YLZMh45EV2y6zEKtlz5wUzJ6epmAFdMVJXpFSTqqYcaJTj6SH2Pp17ZmIbj3b2mRmJLn7bV36U9npwL0vtTk3rMJiblOQyoh/c9KJpmE3hxkU1th4Ho+iTazFQVG9ROKRKJpGSgWKmhX8zlgh68VTrFIAcsyvYQGfbOrIZ5/gmq82HXTj9ttNEmmv5/ybsZczxjtW96XmLHoDuKzfuCpBu/tx5O5wlZJi5o8HGZm/J//VfeUftSyZeyA7uOQAAAAASUVORK5CYII=);
+                -webkit-background-size: 57px 57px;
+                -moz-background-size: 57px 57px;
+                -ie-background-size: 57px 57px;
+                -o-background-size: 57px 57px;
+                background-size: 57px 57px;
+            }
+        }
+
+        .control-group {
+            margin: 0;
+            padding: 0 0 10px 0;
+        }
+        .scope label { display: inline; }
+        .scope input[type=radio] { display: inline-block; margin-left: 10px;}
+
+        #logo {
+            text-indent: -9999px;
+            width: 100%;
+            height: 90px;
+            margin: 0 auto;
+            background: url("meowbify.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-993328-109']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	</head>
+	<body class="min preview">
+
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+		
+    <div class="container-fluid">
+        <h1 id="logo">Meowbify</h1>
+        <p class="explain">Meowbify uses <a href="http://www.mobify.com">Mobify's</a> industry leading technology to make the whole internet cat friendly.</p>
+
+
+
+
+        <h3>Try these sites</h3>
+        <ul>
+            <li><a href="http://cat.www.bbc.com.meowbify.com/">BBC</a></li>
+            <li><a href="http://cat.www.time.com.meowbify.com/">Time</a></li>
+            <li><a href="http://cat.www.cnn.com.meowbify.com/">CNN</a></li>
+        </ul>
+
+        <h3>...or enter any site</h3>
+
+        <form action="" method="post" autocorrect="off" novalidate>
+            <div class="well">
+                        <div class="control-group ">
+                        <div class="pull-right">
+                        <a href="https://twitter.com/share" class="twitter-share-button pull-right" data-hashtags="meowbify">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                        <div class="fb-like pull-right" data-href="http://www.meowbify.com" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false" data-font="arial"></div></div>
+                            <label for="id_url">Site URL</label>
+                            <input type="url" name="url" id="id_url" />
+                            
+                        </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-large">Meowbify It</button>
+            
+        </form>
+        
+        <hr />
+        <h2>About Mobify</h2>
+        <div class="row-fluid">
+            <div class="span6">
+                <div class="well">
+                    <h3>Mobify's Open Platform Adapts the Web</h3>
+                    <p>We're building an <a href="http://www.mobify.com/platform/">open platform</a> to adapt the web for mobile, tablet, and the future.</p>
+                    <p>Find out how we can help you business grow in an increasingly mobile world.</p>
+                </div>
+            </div>
+            <div class="span6">
+                <div class="well">
+                    <h3>Hack on cool projects at Mobify</h3>
+                    <p>We're looking for engineers and designers who are passionate about building the future of the web.</p>
+                    <p>If you want to work with a fun and talented team, visit our <a href="http://www.mobify.com/about/jobs/">jobs page</a> to see what we're all about.</p>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- .container-fluid -->
+
+
+        
+    
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        
+    <script>
+        (function() {
+            $('button').on('click', function(e) {
+                e.preventDefault();
+                var val = $('input').val()
+                
+                var match = /^((((http)(s)?):)?\/\/)?([^\/]*)(\/?.*)/.exec(val);
+                var protocol = match[3] || "http";
+                var host = match[6];
+                var path = match[7];
+                var secure = protocol === "https"
+
+                var newPath = "http://" + (secure ? "cats." : "cat.") + host + ".meowbify.com"
+                window.location = newPath;
+
+            });
+
+            $('#id_url').on('keydown', function(e) {	var keycode;	if (window.event) keycode = window.event.keyCode;	else if (e) keycode = e.which;	else return true; if(keycode == 13) {	 $('button').click();	}});
+
+            // Advanced
+
+        })();
+    </script>
+
+	</body>
+</html>
