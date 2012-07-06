@@ -56,7 +56,7 @@ Special Thanks
 The Mobify Team:
 
  - @fractaltheory who christened it "Meowbify"
- - @kpeatt who butched^Hbeautifully altered Mobify's logo in to a Cat
+ - @kpeatt who butchered^Hbeautifully altered Mobify's logo in to a Cat
  - @shawnjan8 who squatted the domain
  - @rrjamie who wasted several afternoons of time to write it
  - @mobify whose time and money @rrjamie was wasting
