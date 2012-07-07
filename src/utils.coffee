@@ -3,6 +3,8 @@ Url = require 'url'
 __ = require 'underscore'
 
 
+DEBUG = process.env['DEBUG']
+
 ###
 Url Options
     url (default false)
@@ -53,7 +55,8 @@ exports.getHostUtilities = getHostUtilities = (domain, port=80, prefix="http") -
             if match
                 host: match[2], secure: match[1] == 's'
             else
-                console.log "Error transforming host: #{host}"
+                if DEBUG
+                    console.log "Error transforming host: #{host}"
                 host
 
 
@@ -63,7 +66,6 @@ exports.getHostUtilities = getHostUtilities = (domain, port=80, prefix="http") -
             urlobj.host = host
             urlobj.protcol = if secure then "https:" else "http:"
             url = Url.format urlobj
-            console.log url
             url
         else
             {host, secure} = removeHostFromHost url

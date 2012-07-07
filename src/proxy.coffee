@@ -3,7 +3,7 @@ Http = require 'http'
 Connect = require 'connect'
 
 {getHostUtilities} = require './utils'
-
+stats = require './middleware/stats'
 rewriteHTML = require './middleware/rewriteHTML'
 randomCat = require './middleware/randomCat'
 rewriteHost = require './middleware/rewriteHost'
@@ -126,6 +126,7 @@ setupCatInjector = () ->
 
     app
         .use(Connect.logger(LOG_FORMAT))
+        .use(stats)
         .use(robots)
         .use(isSecure)
         .use(randomCat(KITTY_INDEX))
@@ -173,7 +174,6 @@ handler = (req, res) ->
         catInjectorApp.handle req, res
     else
         staticApp.handle req, res
-        
 
 Server = Http.createServer handler
 Server.listen PROXY_PORT

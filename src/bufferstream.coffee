@@ -18,6 +18,8 @@ BufferStreams have a few benefits:
 
 ###
 
+DEBUG = process.env["DEBUG"]
+
 class BufferStream extends Stream
     MIN_BUFFER_SIZE = 65536
     MAX_BUFFER_SIZE = 65536
@@ -63,6 +65,9 @@ class BufferStream extends Stream
         targetSize = MIN_BUFFER_SIZE
         while targetSize < desiredSize
             targetSize *= 2
+
+        if DEBUG
+            console.log "Resizing buffer from #{@buffer.length} to #{targetSize}"
 
         # Copying to a new buffer prevents mangling of buffers
         # that were returned by _read.
