@@ -11,7 +11,6 @@ module.exports = proxyRequest = (req, res) ->
         agent: false # Disable connection pooling
 
     RequestClient = if req.secure then Https else Http
-
     clientReq = RequestClient.request options, (clientRes) ->
         statusCode = clientRes.statusCode
         headers = clientRes.headers
@@ -31,7 +30,14 @@ module.exports = proxyRequest = (req, res) ->
 
             if clientRes.trailers
                 res.addTrailers clientRes.trailers
-
+    
+    clientReq.on "error", (err) ->
+        console.log "Request Error:"
+        console.dir err
+        
+        res.writeHead 500, "Error connecting.", {}
+        res.end()
+    
     req.on "data", (data) ->
         clientReq.write data
 
