@@ -72,6 +72,10 @@ module.exports = rewriteHTML = (addHost) ->
             else
                 buffer.pipe(newRes)
             
+
+            buffer.on "end", () ->
+                buffer = null
+            
             buffer.resume()
 
         next()
