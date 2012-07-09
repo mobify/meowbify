@@ -19,8 +19,8 @@ BufferStreams have a few benefits:
 ###
 
 class BufferStream extends Stream
-    MIN_BUFFER_SIZE = 4096
-    MAX_BUFFER_SIZE = MIN_BUFFER_SIZE * 16
+    MIN_BUFFER_SIZE = 65536
+    MAX_BUFFER_SIZE = 65536
 
     constructor: (size = MIN_BUFFER_SIZE) ->
         @writeIndex = 0
