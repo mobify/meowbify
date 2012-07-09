@@ -196,6 +196,13 @@ class OuterRewriter extends EventEmitter
 
     writable: true
     readable: true
+    
+    destroySoon: () ->
+        @_destroySoon = true
+
+    destroy: () ->
+        @_destroyed = true
+        @emit 'close'
 
 
 exports.Rewriter = OuterRewriter

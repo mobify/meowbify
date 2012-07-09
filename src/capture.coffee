@@ -47,7 +47,8 @@ captureResponse = (res, onEndHeader) ->
     res.setHeader = (header, value) ->
         res.headers[header] = value
 
-
+    res.on "close", () ->
+        buffer.destroy()
 
     newRes =
         write: (data, encoding) ->
@@ -61,6 +62,8 @@ captureResponse = (res, onEndHeader) ->
         writable: true
         removeListener: () ->
             res.removeListener.apply res, arguments
+        destroy: () ->
+            @emit "close"
 
     return [buffer, newRes]
 

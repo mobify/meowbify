@@ -58,6 +58,21 @@ module.exports = rewriteHTML = (addHost) ->
 
         # Collect Response Body
         buffer.pause()
+        
+        # If the request is terminated prematurely, we can begin to cleanup.
+        # (Assists GC)
+        req.on "close", () ->
+            if buffer
+                buffer.destroy()
+        
+        # Throw away the buffer when we're done.
+        # (Assits GC)
+        buffer.on "end", () ->
+            if buffer
+                buffer = null
+        buffer.on "close", () ->
+            if buffer
+                buffer = null
 
         transformResponse = (statusCode, reason, headers) ->
             # Check to make sure we should transform the response
@@ -71,10 +86,6 @@ module.exports = rewriteHTML = (addHost) ->
                 buffer.pipe(rw).pipe(newRes)
             else
                 buffer.pipe(newRes)
-            
-
-            buffer.on "end", () ->
-                buffer = null
             
             buffer.resume()
 

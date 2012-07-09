@@ -50,7 +50,7 @@ class BufferStream extends Stream
     #
     ###
     ensureSpace: (bytes) ->
-        bytesAvailable = @buffer.size - @writeIndex
+        bytesAvailable = @buffer.length - @writeIndex
 
         # Current buffer might be large enough
         if bytesAvailable >= bytes
@@ -132,14 +132,14 @@ class BufferStream extends Stream
 
 
     _flush: () ->
-        empty = !@_getLength()
-
         if @paused or @_destroyed
             return
 
         # Flush some data
         @_emitData(@_endWrite or @_destroySoon)
 
+        empty = !@_getLength()
+        
         # Trigger End Event
         if empty and @_endWrite
             @_emitEnd()
@@ -160,7 +160,7 @@ class BufferStream extends Stream
 
     _emitEnd: () ->
         @readable = false
-        @_endRead = false
+        @_endRead = true
         @emit "end"
         @destroy()
 
@@ -201,6 +201,9 @@ class BufferStream extends Stream
 
 
     destroy: () ->
+        if @_destroyed
+            return
+
         @_destroyed = true
         @writable = false
         @readable = false
