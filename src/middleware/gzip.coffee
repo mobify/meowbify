@@ -35,6 +35,10 @@ exports.gunZip = gunZip = (req, res, next) ->
                 unzip = Zlib.createInflate()
 
             buffer.pipe(unzip).pipe(newRes)
+
+            unzip.on "error", () ->
+                console.log "Problem decoding compressed stream."
+                newRes.end()
         else
             buffer.pipe(newRes)
         buffer.resume()
