@@ -10,6 +10,7 @@ rewriteHost = require './middleware/rewriteHost'
 {gunZip} = require './middleware/gzip'
 proxyRequest = require './middleware/proxyRequest'
 robots = require './middleware/robots'
+insertGA = require './middleware/insertGA'
 
 ###
 Cat Injecting Proxy
@@ -129,6 +130,7 @@ setupCatInjector = () ->
         .use(stats)
         .use(robots)
         .use(isSecure)
+        .use(insertGA())
         .use(randomCat(KITTY_INDEX))
         .use(rewriteHTML(addHost))
         .use(rewriteHost(addHost, removeHost))
