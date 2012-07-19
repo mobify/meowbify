@@ -185,7 +185,7 @@
                 var path = match[7];
                 var secure = protocol === "https"
 
-                var newPath = "http://" + (secure ? "cats." : "cat.") + host + ".meowbify.com"
+                var newPath = "http://" + (secure ? "cats." : "cat.") + host + ".meowbify.com" + path;
                 window.location = newPath;
 
             });
