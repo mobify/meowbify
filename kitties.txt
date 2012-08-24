@@ -5,6 +5,7 @@
 http://meowbify.com/kitties/angel.gif # @kpeatt
 http://meowbify.com/kitties/daphne-attack2.gif # @jackygilbertson
 http://meowbify.com/kitties/daphne-back-snuggle.jpeg # @jackygilbertson
+http://meowbify.com/kitties/kittypotter.jpeg # candace
 # Open a Pull Request, add your cat!
 
 
