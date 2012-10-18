@@ -1,4 +1,5 @@
 Http = require 'http'
+FS = require 'fs'
 
 Connect = require 'connect'
 
@@ -11,6 +12,7 @@ rewriteHost = require './middleware/rewriteHost'
 proxyRequest = require './middleware/proxyRequest'
 robots = require './middleware/robots'
 insertGA = require './middleware/insertGA'
+blacklist = require './middleware/blacklist'
 
 ###
 Cat Injecting Proxy
@@ -111,6 +113,12 @@ PROXY_PREFIX = process.env.PREFIX_SUBDOMAIN || "cat"
 
 KITTY_INDEX = "#{__dirname}/../kitties.txt"
 
+BLACKLIST = [
+    "atelierzen.canalblog.com"
+]
+
+BLACKLIST_CONTENT = FS.readFileSync "#{__dirname}/../static/404.html"
+
 setupCatInjector = () ->
     # Connect App for Inserting Cats
     [addHost, removeHost, isHostSecure] = getHostUtilities PROXY_SUFFIX_DOMAIN, PROXY_EXTERNAL_PORT, PROXY_PREFIX 
@@ -129,6 +137,7 @@ setupCatInjector = () ->
         .use(Connect.logger(LOG_FORMAT))
         .use(stats)
         .use(robots)
+        .use(blacklist(removeHost, BLACKLIST, BLACKLIST_CONTENT))
         .use(isSecure)
         .use(insertGA())
         .use(randomCat(KITTY_INDEX))
