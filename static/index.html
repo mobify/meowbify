@@ -37,6 +37,8 @@
         }
         .main-action .explain {
             text-align: center;
+            font-size: 1.25em;
+            margin-bottom: 1em;
         }
 
         input[type=url],
@@ -53,11 +55,13 @@
         }
 
         .extras {
+            padding: 60px 0 0 0;
+            border-top: solid 1px #D7DCDD;
             margin: 60px 0 30px 0;
         }
 
         .suggestions {
-            padding: 50px 20% 0 0;
+            padding: 20px 20% 0 0;
         }
         .suggestions h3 {
             width: 60%;
@@ -102,6 +106,20 @@
         .scope label { display: inline; }
         .scope input[type=radio] { display: inline-block; margin-left: 10px;}
 
+
+        .disclaimer {
+            color: #A4AFB5;
+            padding: 60px 0 0 0;
+            border-top: solid 1px #D7DCDD;
+            margin-top: 60px;
+            text-align: left;
+        }
+        .disclaimer strong {
+            color: #475860;
+        }
+        .disclaimer em {
+            font-style: normal;
+        }
 
         @media only screen and (max-width: 1024px) {
             .suggestions {
@@ -193,8 +211,8 @@
                 </div>
             </div>
             <div class="span7">
-                <h2>About Mobify</h2>
                 <div class="well">
+                    <h2>About Mobify</h2>
                     <div class="row-fluid">
                         <div class="span6">
                             <h3>Mobify.js Adapts the Web</h3>
@@ -209,7 +227,7 @@
             </div>
         </div>
 
-	<p class="explain"><strong>Disclaimer:</strong><em>This website allows you to access content
+	<p class="disclaimer"><strong>Disclaimer:</strong> <em>This website allows you to access content
 	from third-party websites that are not owned or controlled by
 	Mobify. Mobify has no control over, and assumes no
 	responsibility for, the content, privacy policies, or
