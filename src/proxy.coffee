@@ -114,7 +114,8 @@ PROXY_PREFIX = process.env.PREFIX_SUBDOMAIN || "cat"
 KITTY_INDEX = "#{__dirname}/../kitties.txt"
 
 BLACKLIST = [
-    "atelierzen.canalblog.com"
+    "atelierzen.canalblog.com",
+    "www.shipleyschool.org"
 ]
 
 BLACKLIST_CONTENT = FS.readFileSync "#{__dirname}/../static/404.html"
