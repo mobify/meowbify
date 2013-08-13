@@ -115,7 +115,9 @@ KITTY_INDEX = "#{__dirname}/../kitties.txt"
 
 BLACKLIST = [
     "atelierzen.canalblog.com",
-    "www.shipleyschool.org"
+    "www.shipleyschool.org",
+    "www.cropscience.bayer.com",
+    "www.bayer.com"
 ]
 
 BLACKLIST_CONTENT = FS.readFileSync "#{__dirname}/../static/404.html"
