@@ -117,7 +117,9 @@ BLACKLIST = [
     "atelierzen.canalblog.com",
     "www.shipleyschool.org",
     "www.cropscience.bayer.com",
-    "www.bayer.com"
+    "www.bayer.com",
+    "www.chase.com",
+    "www.credit-agricole.fr"
 ]
 
 BLACKLIST_CONTENT = FS.readFileSync "#{__dirname}/../static/404.html"
