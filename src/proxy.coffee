@@ -64,7 +64,7 @@ of the site:
 
     gunZip
 
-8. Repeat the (now modified) request against the 
+8. Repeat the (now modified) request against the
 
     proxyRequest
 
@@ -107,7 +107,7 @@ Default: ':method :status :response-time \t:req[Host]:url :user-agent'
 PROXY_PORT = process.env.PORT || 5000
 PROXY_EXTERNAL_PORT = process.env.EXTERNAL_PORT || 80
 PROXY_SUFFIX_DOMAIN = process.env.SUFFIX_DOMAIN || "meowbify.com"
-LOG_FORMAT = ':method :status :response-time \t:req[Host]:url :user-agent' 
+LOG_FORMAT = ':method :status :response-time \t:req[Host]:url :user-agent'
 
 PROXY_PREFIX = process.env.PREFIX_SUBDOMAIN || "cat"
 
@@ -117,21 +117,22 @@ BLACKLIST = [
     "atelierzen.canalblog.com",
     "www.shipleyschool.org",
     "www.cropscience.bayer.com",
-    "www.bayer.com"
+    "www.bayer.com",
+    "www.onlinebanking.pnc.com"
 ]
 
 BLACKLIST_CONTENT = FS.readFileSync "#{__dirname}/../static/404.html"
 
 setupCatInjector = () ->
     # Connect App for Inserting Cats
-    [addHost, removeHost, isHostSecure] = getHostUtilities PROXY_SUFFIX_DOMAIN, PROXY_EXTERNAL_PORT, PROXY_PREFIX 
+    [addHost, removeHost, isHostSecure] = getHostUtilities PROXY_SUFFIX_DOMAIN, PROXY_EXTERNAL_PORT, PROXY_PREFIX
 
     isSecure = (req, res, next) ->
         if isHostSecure req.headers['host']
             req.secure = true
         else
             req.secure = false
-        
+
         next()
 
     app = Connect()
@@ -155,10 +156,10 @@ setupStatic = () ->
     # Serves the landing page.
 
     app = Connect()
-    
+
     app
         .use(Connect.static(__dirname + "/../static", maxAge: 24*60*60, redirect: true))
-    
+
     app
 
 
