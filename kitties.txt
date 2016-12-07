@@ -8,6 +8,13 @@ http://meowbify.com/kitties/daphne-back-snuggle.jpeg # @jackygilbertson
 http://meowbify.com/kitties/kittypotter.jpeg # candace
 # Open a Pull Request, add your cat!
 
+# Cats courtesy of @lynnaloo
+http://25.media.tumblr.com/tumblr_m1t6zwACk91qzzftao1_500.jpg
+http://25.media.tumblr.com/tumblr_lx1mqdl74Z1qzzftao1_500.jpg
+http://24.media.tumblr.com/7615551b52a3d72f2da81f2352bbe453/tumblr_mnqft3Opxw1qzzftao1_500.jpg
+http://24.media.tumblr.com/06e57d6e00cbc4c2ec769923d3244aea/tumblr_mnqfrvn0AS1qzzftao1_500.jpg
+http://24.media.tumblr.com/tumblr_m080ip2B5C1qzzftao1_500.jpg
+
 
 # These are courtesy of the TheCatAPI.com
 # We crawled them because of highload on the TheCatAPI.com
