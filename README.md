@@ -50,6 +50,11 @@ Default: "cat" (which means cat.* == http, cats.* == https).
 Default: ':method :status :response-time \t:req[Host]:url :user-agent'
 
 
+CDN Notes
+----------
+`static/6de724117464.css` is deployed to s3://cdn.mobify.net/meowbify/asset/
+
+
 Special Thanks
 --------------
 
